@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+
+<h1>メニュー情報</h1>
+<p>
+  <%= @product.name %>
+</p>
+
+<p>
+  <%= "¥" + @product.price.to_s %>
+</p>
+
+<p>
+  <%= @product.description %>
+</p>
+
+<p>
+  <%= image_tag(@product.photo) %>
+</p>
+
+

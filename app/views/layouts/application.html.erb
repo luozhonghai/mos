@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mos</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="cartbar">
+  <td><%= link_to "カート表示", carts_path %></td>
+  <td><%= link_to "カートに追加", new_cart_path %></td>
+</div>
+
+<%= yield %>
+
+</body>
+</html>
