@@ -10,7 +10,14 @@
       </ul>
     </div>
   <% end %>
-
+  
+  <% if show_product_select %>
+    <div class="field">
+      <%= f.label :商品 %><br>
+      <%= f.select :product_id, @product_selector%>
+    </div>
+  <% end %>
+  
   <div class="field">
     <%= f.label :数量 %><br>
     <%= f.number_field :sum %>

@@ -13,7 +13,7 @@
   <tbody>
     <% @carts.each do |cart| %>
       <tr>
-        <td><%= image_tag(cart.product.photo) %></td>
+        <td><%= image_tag(cart.product.avatar.url(:thumb)) %></td>
         <td><%= cart.product.name %></td>
         <td><%= cart.sum %></td>
         <!-- <td><%= link_to 'Show', cart %></td> -->

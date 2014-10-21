@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    models:
+      product: TODO
+    attributes:
+      product:
+        name: 名称
+        price: 価格
+        photo: 画像
+        description: 説明

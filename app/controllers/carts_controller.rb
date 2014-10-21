@@ -14,13 +14,8 @@ class CartsController < ApplicationController
 
   # GET /carts/new
   def new
-    @cart = Cart.new
-    @product_names = Product.all.collect do |p|
-      a = []
-      a << p.name
-      a << p.id
-      a
-    end
+    @cart = Cart.new(sum: 1)
+    @product_selector = Product.all.collect {|p| [p.name, p.id]}
   end
 
   # GET /carts/1/edit
