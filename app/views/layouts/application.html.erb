@@ -8,11 +8,17 @@
 </head>
 <body>
 
+<% if session[:login] != nil %>
 <div class="cartbar">
-  <td><%= link_to "カート表示", carts_path %></td>
-  <td><%= link_to "カートに追加", new_cart_path %></td>
+  <td><%= link_to "カート表示", user_carts_path(user_id: session[:login]) %></td>
+  <td><%= link_to "カートに追加", new_user_cart_path(user_id: session[:login]) %></td>
+  <td><%= link_to "logout", login_path(id: session[:login]), method: :delete %></td>
 </div>
-
+<% else %>
+<div class="cartbar">
+  <td><%= link_to "登録", new_login_path %></td>
+</div>
+<% end %>
 <%= yield %>
 
 </body>

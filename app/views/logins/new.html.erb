@@ -1,0 +1,16 @@
+<h1>Login</h1>
+<%= form_for(@user, :url=>logins_path)  do |f|%>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </div>
+  <div class="actions">
+    <%= f.submit :Login %>
+  </div>
+<% end %>
+
+<%= link_to "新规登録", new_user_path %>

@@ -1,7 +1,8 @@
 <h1>数量变更</h1>
 
 <%= @cart.product.name %>
-<%= render 'form' %>
+<%= @cart.count %>
+<%= render partial:'form', locals: {show_product_select: true} %>
 
 
 <%= link_to '戻る', carts_path %>

@@ -1,10 +1,16 @@
 class CartsController < ApplicationController
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
-
+  before_action :require_login
   # GET /carts
   # GET /carts.json
   def index
-    @carts = Cart.all
+    if params[:user_id] != nil
+      @carts = Cart.where(user_id: params[:user_id])
+      @cart_sum = Cart.user_cart_sum(user_id: params[:user_id])
+      @cart_fare = Cart.user_cart_fare(sum: @cart_sum)
+    else
+      @carts = Cart.all
+    end
   end
 
   # GET /carts/1
@@ -14,19 +20,20 @@ class CartsController < ApplicationController
 
   # GET /carts/new
   def new
-    @cart = Cart.new(sum: 1)
+    @cart = Cart.new(count: 1)
     @product_selector = Product.all.collect {|p| [p.name, p.id]}
   end
 
   # GET /carts/1/edit
   def edit
+    @product_selector = Product.all.collect {|p| [p.name, p.id]}
   end
 
   # POST /carts
   # POST /carts.json
   def create
     @cart = Cart.new(cart_params)
-
+    @cart.user_id = session[:login]
     respond_to do |format|
       if @cart.save
         format.html { redirect_to @cart, notice: 'Cart was successfully created.' }
@@ -43,7 +50,7 @@ class CartsController < ApplicationController
   def update
     respond_to do |format|
       if @cart.update(cart_params)
-        format.html { redirect_to @cart, notice: 'Cart was successfully updated.' }
+        format.html { redirect_to user_carts_path(user_id: session[:login]), notice: 'Cart was successfully updated.' }
         format.json { render :show, status: :ok, location: @cart }
       else
         format.html { render :edit }
@@ -70,6 +77,12 @@ class CartsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cart_params
-      params.require(:cart).permit(:name,:sum,:product_id)
+      params.require(:cart).permit(:name,:count,:product_id,:user_id)
+    end
+    
+    def require_login
+      if session[:login] == nil
+        redirect_to new_login_path
+      end
     end
 end

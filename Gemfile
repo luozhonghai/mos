@@ -27,6 +27,11 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem "paperclip", "~> 4.2"
+
+gem 'kaminari'
+
+gem 'rspec-rails', group: :test
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

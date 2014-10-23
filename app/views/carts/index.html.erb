@@ -15,7 +15,7 @@
       <tr>
         <td><%= image_tag(cart.product.avatar.url(:thumb)) %></td>
         <td><%= cart.product.name %></td>
-        <td><%= cart.sum %></td>
+        <td><%= cart.count %></td>
         <!-- <td><%= link_to 'Show', cart %></td> -->
         <td><%= link_to '数量变更', edit_cart_path(cart) %></td>
         <td><%= link_to '削除', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -24,6 +24,7 @@
   </tbody>
 </table>
 
-<br>
+<h3><%= "sum: " + @cart_sum.to_s %></h3>
+<h3><%= "fare: " + @cart_fare.to_s %></h3><br>
 
 <%= link_to 'メニューに戻る', products_path %>
