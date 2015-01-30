@@ -3,14 +3,14 @@
 worker_processes 4
 listen 3000
 
-# feel free to point this anywhere accessible on the filesystem
+# # feel free to point this anywhere accessible on the filesystem
 pid "#{File.expand_path('.')}/tmp/pids/unicorn.pid"
 
-# By default, the Unicorn logger will write to stderr.
-# Additionally, ome applications/frameworks log to stderr or stdout,
-# so prevent them from going to /dev/null when daemonized here:
-stderr_path "#{File.expand_path('.')}/log/unicorn.log"
-stdout_path "#{File.expand_path('.')}/log/unicorn.log"
+# # By default, the Unicorn logger will write to stderr.
+# # Additionally, ome applications/frameworks log to stderr or stdout,
+# # so prevent them from going to /dev/null when daemonized here:
+#stderr_path "#{File.expand_path('.')}/log/unicorn.log"
+#stdout_path "#{File.expand_path('.')}/log/unicorn.log"
 
 preload_app true
 

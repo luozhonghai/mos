@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20141023085851) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "product_id"
-    t.integer  "count"
     t.integer  "user_id"
+    t.integer  "count"
   end
 
   add_index "carts", ["product_id"], name: "index_carts_on_product_id"
