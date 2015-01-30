@@ -19,7 +19,7 @@ set :scm, :git
 # set :format, :pretty
 
 # Default value for :log_level is :debug
-set :log_level, :info
+#set :log_level, :info
 
 # Default value for :pty is false
 # set :pty, true
@@ -56,6 +56,8 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public
 # namespace :deploy do
 #   after :finishing, 'deploy:cleanup'
 # end
+
+set :bundle_flags, '--deployment'
 
 namespace :deploy do
   desc 'Restart application'
