@@ -37,6 +37,7 @@ gem 'rspec-rails', group: :test
 
 # Use unicorn as the app server
 gem 'unicorn'
+gem "unicorn-rails"
 
 group :development do
   gem 'capistrano', '~> 3.1'
