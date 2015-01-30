@@ -36,7 +36,16 @@ gem 'rspec-rails', group: :test
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
+
+group :development do
+  gem 'capistrano', '~> 3.1'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv', '~> 2.0'
+  # Add this if you're using rvm
+  # gem 'capistrano-rvm'
+end
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
